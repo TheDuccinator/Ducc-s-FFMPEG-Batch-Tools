@@ -2,7 +2,7 @@
 
 if [%1]==[] goto error
 
-for %%a in (%*) do ffmpeg -i "%%~a" -c:v libx264 -crf 18 -preset slow -c:a copy "%%~a_reencoded.mp4"
+for %%a in (%*) do ffmpeg -i "%%~a" -c:v libx264 -crf 18 -preset slow -c:a aac -b:a 320k "%%~a_reencoded.mp4"
 goto good
 
 :error
